@@ -29,7 +29,7 @@ response = requests.get("https://online-go.com/api/v1/groups/?ordering=-member_c
 ctr = 1
 while True:
   for group in response.json()['results']:
-    group_info = group['name'] + '\n'
+    group_info = '{}  # members: {}\n'.format(group['name'], group['member_count'])
 
     if group['hide_details'] == True:
         group_info += '    Details hidden\n'
